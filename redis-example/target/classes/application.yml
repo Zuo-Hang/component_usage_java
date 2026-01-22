@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: redis-example
+  redis:
+    host: localhost
+    port: 6379
+    password: 
+    database: 0
+    timeout: 3000ms
+
+# Redisson配置（可选，也可以通过代码配置）
+# spring:
+#   redisson:
+#     config: |
+#       singleServerConfig:
+#         address: "redis://localhost:6379"
+#         database: 0
+#         connectionPoolSize: 10
+#         connectionMinimumIdleSize: 5
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.example.redis: DEBUG
+

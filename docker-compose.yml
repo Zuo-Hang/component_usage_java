@@ -1,0 +1,117 @@
+services:
+  # Redis服务 - 用于redis-example模块
+  redis:
+    image: redis:7-alpine
+    container_name: redis-example
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - component-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # MySQL服务 - 用于mysql-example模块
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-example
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: test_user
+      MYSQL_PASSWORD: test_password
+      TZ: Asia/Shanghai
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql-example/src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    command: 
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-authentication-plugin=mysql_native_password
+    networks:
+      - component-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # RocketMQ NameServer - 用于mq-example模块
+  rocketmq-nameserver:
+    image: apacherocketmq/rocketmq:5.1.4
+    container_name: rocketmq-nameserver
+    ports:
+      - "9876:9876"
+    volumes:
+      - rocketmq-nameserver-logs:/home/rocketmq/logs
+    command: sh mqnamesrv
+    networks:
+      - component-network
+    environment:
+      JAVA_OPT_EXT: "-server -Xms512m -Xmx512m -Xmn256m"
+    healthcheck:
+      test: ["CMD", "sh", "-c", "netstat -an | grep 9876 || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # RocketMQ Broker - 用于mq-example模块
+  rocketmq-broker:
+    image: apacherocketmq/rocketmq:5.1.4
+    container_name: rocketmq-broker
+    ports:
+      - "10909:10909"
+      - "10911:10911"
+    volumes:
+      - rocketmq-broker-logs:/home/rocketmq/logs
+      - rocketmq-broker-store:/home/rocketmq/store
+    command: sh mqbroker -n rocketmq-nameserver:9876
+    networks:
+      - component-network
+    environment:
+      JAVA_OPT_EXT: "-server -Xms512m -Xmx512m -Xmn256m"
+    depends_on:
+      - rocketmq-nameserver
+    healthcheck:
+      test: ["CMD", "sh", "-c", "netstat -an | grep 10911 || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # RocketMQ Console - RocketMQ管理控制台（可选）
+  rocketmq-console:
+    image: styletang/rocketmq-console-ng:latest
+    container_name: rocketmq-console
+    ports:
+      - "8080:8080"
+    environment:
+      JAVA_OPTS: "-Drocketmq.namesrv.addr=rocketmq-nameserver:9876"
+    networks:
+      - component-network
+    depends_on:
+      - rocketmq-nameserver
+      - rocketmq-broker
+
+volumes:
+  redis-data:
+    driver: local
+  mysql-data:
+    driver: local
+  rocketmq-nameserver-logs:
+    driver: local
+  rocketmq-broker-logs:
+    driver: local
+  rocketmq-broker-store:
+    driver: local
+
+networks:
+  component-network:
+    driver: bridge
+

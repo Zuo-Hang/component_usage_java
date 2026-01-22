@@ -1,0 +1,2302 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "mq-example",
+        "directory": "/Users/didi/java_project/component_usage_java/mq-example",
+        "workspaceDir": "/Users/didi/java_project/component_usage_java",
+        "sources": [
+            "/Users/didi/java_project/component_usage_java/mq-example/src/main/java"
+        ],
+        "dependencies": [
+            "component-usage-java"
+        ],
+        "classpath": [
+            "/Users/didi/java_project/component_usage_java/target/classes",
+            "/Users/didi/java_project/component_usage_java/mq-example/target/classes",
+            "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.7.14/spring-boot-starter-web-2.7.14.jar",
+            "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter/2.7.14/spring-boot-starter-2.7.14.jar",
+            "/Users/didi/.m2/repository/org/springframework/boot/spring-boot/2.7.14/spring-boot-2.7.14.jar",
+            "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.7.14/spring-boot-autoconfigure-2.7.14.jar",
+            "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.7.14/spring-boot-starter-logging-2.7.14.jar",
+            "/Users/didi/.m2/repository/ch/qos/logback/logback-classic/1.2.12/logback-classic-1.2.12.jar",
+            "/Users/didi/.m2/repository/ch/qos/logback/logback-core/1.2.12/logback-core-1.2.12.jar",
+            "/Users/didi/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.17.2/log4j-to-slf4j-2.17.2.jar",
+            "/Users/didi/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar",
+            "/Users/didi/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar",
+            "/Users/didi/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar",
+            "/Users/didi/.m2/repository/org/yaml/snakeyaml/1.30/snakeyaml-1.30.jar",
+            "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.7.14/spring-boot-starter-json-2.7.14.jar",
+            "/Users/didi/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.5/jackson-databind-2.13.5.jar",
+            "/Users/didi/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.5/jackson-annotations-2.13.5.jar",
+            "/Users/didi/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.5/jackson-core-2.13.5.jar",
+            "/Users/didi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.13.5/jackson-datatype-jdk8-2.13.5.jar",
+            "/Users/didi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.5/jackson-datatype-jsr310-2.13.5.jar",
+            "/Users/didi/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.13.5/jackson-module-parameter-names-2.13.5.jar",
+            "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.7.14/spring-boot-starter-tomcat-2.7.14.jar",
+            "/Users/didi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.78/tomcat-embed-core-9.0.78.jar",
+            "/Users/didi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.78/tomcat-embed-el-9.0.78.jar",
+            "/Users/didi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.78/tomcat-embed-websocket-9.0.78.jar",
+            "/Users/didi/.m2/repository/org/springframework/spring-web/5.3.29/spring-web-5.3.29.jar",
+            "/Users/didi/.m2/repository/org/springframework/spring-beans/5.3.29/spring-beans-5.3.29.jar",
+            "/Users/didi/.m2/repository/org/springframework/spring-webmvc/5.3.29/spring-webmvc-5.3.29.jar",
+            "/Users/didi/.m2/repository/org/springframework/spring-aop/5.3.29/spring-aop-5.3.29.jar",
+            "/Users/didi/.m2/repository/org/springframework/spring-context/5.3.29/spring-context-5.3.29.jar",
+            "/Users/didi/.m2/repository/org/springframework/spring-expression/5.3.29/spring-expression-5.3.29.jar",
+            "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-spring-boot-starter/2.2.3/rocketmq-spring-boot-starter-2.2.3.jar",
+            "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-spring-boot/2.2.3/rocketmq-spring-boot-2.2.3.jar",
+            "/Users/didi/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar",
+            "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-client/5.0.0/rocketmq-client-5.0.0.jar",
+            "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-common/5.0.0/rocketmq-common-5.0.0.jar",
+            "/Users/didi/.m2/repository/com/github/luben/zstd-jni/1.5.2-2/zstd-jni-1.5.2-2.jar",
+            "/Users/didi/.m2/repository/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar",
+            "/Users/didi/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar",
+            "/Users/didi/.m2/repository/com/google/guava/guava/31.0.1-jre/guava-31.0.1-jre.jar",
+            "/Users/didi/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
+            "/Users/didi/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+            "/Users/didi/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+            "/Users/didi/.m2/repository/org/checkerframework/checker-qual/3.12.0/checker-qual-3.12.0.jar",
+            "/Users/didi/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar",
+            "/Users/didi/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar",
+            "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-acl/5.0.0/rocketmq-acl-5.0.0.jar",
+            "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-proto/2.0.0/rocketmq-proto-2.0.0.jar",
+            "/Users/didi/.m2/repository/org/apache/tomcat/annotations-api/6.0.53/annotations-api-6.0.53.jar",
+            "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-remoting/5.0.0/rocketmq-remoting-5.0.0.jar",
+            "/Users/didi/.m2/repository/com/alibaba/fastjson/1.2.69_noneautotype/fastjson-1.2.69_noneautotype.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-all/4.1.94.Final/netty-all-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-buffer/4.1.94.Final/netty-buffer-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec/4.1.94.Final/netty-codec-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec-dns/4.1.94.Final/netty-codec-dns-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec-haproxy/4.1.94.Final/netty-codec-haproxy-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec-http/4.1.94.Final/netty-codec-http-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec-http2/4.1.94.Final/netty-codec-http2-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec-memcache/4.1.94.Final/netty-codec-memcache-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec-mqtt/4.1.94.Final/netty-codec-mqtt-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec-redis/4.1.94.Final/netty-codec-redis-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec-smtp/4.1.94.Final/netty-codec-smtp-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec-socks/4.1.94.Final/netty-codec-socks-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec-stomp/4.1.94.Final/netty-codec-stomp-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-codec-xml/4.1.94.Final/netty-codec-xml-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-common/4.1.94.Final/netty-common-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-handler/4.1.94.Final/netty-handler-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.94.Final/netty-transport-native-unix-common-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-handler-proxy/4.1.94.Final/netty-handler-proxy-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-handler-ssl-ocsp/4.1.94.Final/netty-handler-ssl-ocsp-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-resolver/4.1.94.Final/netty-resolver-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-resolver-dns/4.1.94.Final/netty-resolver-dns-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-transport/4.1.94.Final/netty-transport-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-transport-rxtx/4.1.94.Final/netty-transport-rxtx-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-transport-sctp/4.1.94.Final/netty-transport-sctp-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-transport-udt/4.1.94.Final/netty-transport-udt-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-transport-classes-epoll/4.1.94.Final/netty-transport-classes-epoll-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-transport-classes-kqueue/4.1.94.Final/netty-transport-classes-kqueue-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/io/netty/netty-resolver-dns-classes-macos/4.1.94.Final/netty-resolver-dns-classes-macos-4.1.94.Final.jar",
+            "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-logging/5.0.0/rocketmq-logging-5.0.0.jar",
+            "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-srvutil/5.0.0/rocketmq-srvutil-5.0.0.jar",
+            "/Users/didi/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar",
+            "/Users/didi/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar",
+            "/Users/didi/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar",
+            "/Users/didi/.m2/repository/commons-validator/commons-validator/1.7/commons-validator-1.7.jar",
+            "/Users/didi/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar",
+            "/Users/didi/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar",
+            "/Users/didi/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar",
+            "/Users/didi/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar",
+            "/Users/didi/.m2/repository/com/google/protobuf/protobuf-java-util/3.20.1/protobuf-java-util-3.20.1.jar",
+            "/Users/didi/.m2/repository/com/google/protobuf/protobuf-java/3.20.1/protobuf-java-3.20.1.jar",
+            "/Users/didi/.m2/repository/com/google/code/gson/gson/2.9.1/gson-2.9.1.jar",
+            "/Users/didi/.m2/repository/org/springframework/spring-messaging/5.3.29/spring-messaging-5.3.29.jar",
+            "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-validation/2.7.14/spring-boot-starter-validation-2.7.14.jar",
+            "/Users/didi/.m2/repository/org/hibernate/validator/hibernate-validator/6.2.5.Final/hibernate-validator-6.2.5.Final.jar",
+            "/Users/didi/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar",
+            "/Users/didi/.m2/repository/org/jboss/logging/jboss-logging/3.4.3.Final/jboss-logging-3.4.3.Final.jar",
+            "/Users/didi/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar",
+            "/Users/didi/.m2/repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar",
+            "/Users/didi/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar",
+            "/Users/didi/.m2/repository/org/springframework/spring-core/5.3.29/spring-core-5.3.29.jar",
+            "/Users/didi/.m2/repository/org/springframework/spring-jcl/5.3.29/spring-jcl-5.3.29.jar"
+        ],
+        "out": "/Users/didi/java_project/component_usage_java/mq-example/target",
+        "classesDir": "/Users/didi/java_project/component_usage_java/mq-example/target/classes",
+        "resources": [
+            "/Users/didi/java_project/component_usage_java/mq-example/src/main/resources"
+        ],
+        "java": {
+            "options": [
+                "-g",
+                "-target",
+                "1.8",
+                "-source",
+                "1.8",
+                "-encoding",
+                "UTF-8"
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework",
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "utest.runner.Framework"
+                    ]
+                },
+                {
+                    "names": [
+                        "munit.Framework"
+                    ]
+                },
+                {
+                    "names": [
+                        "mill.testng.TestNGFramework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    {
+                        "args": [
+                            "-v",
+                            "-a"
+                        ],
+                        "framework": {
+                            "names": [
+                                "com.novocode.junit.JUnitFramework"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "/opt/homebrew/Cellar/openjdk@21/21.0.9/libexec/openjdk.jdk/Contents/Home",
+                "options": [
+                    
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "com.fasterxml.jackson.core",
+                    "name": "jackson-databind",
+                    "version": "2.13.5",
+                    "artifacts": [
+                        {
+                            "name": "jackson-databind",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.5/jackson-databind-2.13.5.jar"
+                        },
+                        {
+                            "name": "jackson-databind",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.5/jackson-databind-2.13.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-logging",
+                    "name": "commons-logging",
+                    "version": "1.2",
+                    "artifacts": [
+                        {
+                            "name": "commons-logging",
+                            "path": "/Users/didi/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"
+                        },
+                        {
+                            "name": "commons-logging",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework",
+                    "name": "spring-webmvc",
+                    "version": "5.3.29",
+                    "artifacts": [
+                        {
+                            "name": "spring-webmvc",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-webmvc/5.3.29/spring-webmvc-5.3.29.jar"
+                        },
+                        {
+                            "name": "spring-webmvc",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-webmvc/5.3.29/spring-webmvc-5.3.29-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework.boot",
+                    "name": "spring-boot-starter-test",
+                    "version": "2.7.14",
+                    "artifacts": [
+                        {
+                            "name": "spring-boot-starter-test",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-test/2.7.14/spring-boot-starter-test-2.7.14.jar"
+                        },
+                        {
+                            "name": "spring-boot-starter-test",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-test/2.7.14/spring-boot-starter-test-2.7.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.hamcrest",
+                    "name": "hamcrest",
+                    "version": "2.2",
+                    "artifacts": [
+                        {
+                            "name": "hamcrest",
+                            "path": "/Users/didi/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar"
+                        },
+                        {
+                            "name": "hamcrest",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-native-epoll",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-native-epoll",
+                            "classifier": "linux-aarch_64",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-native-epoll/4.1.94.Final/netty-transport-native-epoll-4.1.94.Final-linux-aarch_64.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "net.bytebuddy",
+                    "name": "byte-buddy-agent",
+                    "version": "1.12.23",
+                    "artifacts": [
+                        {
+                            "name": "byte-buddy-agent",
+                            "path": "/Users/didi/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.23/byte-buddy-agent-1.12.23.jar"
+                        },
+                        {
+                            "name": "byte-buddy-agent",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.23/byte-buddy-agent-1.12.23-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.rocketmq",
+                    "name": "rocketmq-proto",
+                    "version": "2.0.0",
+                    "artifacts": [
+                        {
+                            "name": "rocketmq-proto",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-proto/2.0.0/rocketmq-proto-2.0.0.jar"
+                        },
+                        {
+                            "name": "rocketmq-proto",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-proto/2.0.0/rocketmq-proto-2.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework.boot",
+                    "name": "spring-boot-starter-logging",
+                    "version": "2.7.14",
+                    "artifacts": [
+                        {
+                            "name": "spring-boot-starter-logging",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.7.14/spring-boot-starter-logging-2.7.14.jar"
+                        },
+                        {
+                            "name": "spring-boot-starter-logging",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.7.14/spring-boot-starter-logging-2.7.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.checkerframework",
+                    "name": "checker-qual",
+                    "version": "3.12.0",
+                    "artifacts": [
+                        {
+                            "name": "checker-qual",
+                            "path": "/Users/didi/.m2/repository/org/checkerframework/checker-qual/3.12.0/checker-qual-3.12.0.jar"
+                        },
+                        {
+                            "name": "checker-qual",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/checkerframework/checker-qual/3.12.0/checker-qual-3.12.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-native-epoll",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-native-epoll",
+                            "classifier": "linux-x86_64",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-native-epoll/4.1.94.Final/netty-transport-native-epoll-4.1.94.Final-linux-x86_64.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-xml",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-xml",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-xml/4.1.94.Final/netty-codec-xml-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-xml",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-xml/4.1.94.Final/netty-codec-xml-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-classes-kqueue",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-classes-kqueue",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-classes-kqueue/4.1.94.Final/netty-transport-classes-kqueue-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-classes-kqueue",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-classes-kqueue/4.1.94.Final/netty-transport-classes-kqueue-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.googlecode.concurrentlinkedhashmap",
+                    "name": "concurrentlinkedhashmap-lru",
+                    "version": "1.4.2",
+                    "artifacts": [
+                        {
+                            "name": "concurrentlinkedhashmap-lru",
+                            "path": "/Users/didi/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar"
+                        },
+                        {
+                            "name": "concurrentlinkedhashmap-lru",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework.boot",
+                    "name": "spring-boot-starter-json",
+                    "version": "2.7.14",
+                    "artifacts": [
+                        {
+                            "name": "spring-boot-starter-json",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.7.14/spring-boot-starter-json-2.7.14.jar"
+                        },
+                        {
+                            "name": "spring-boot-starter-json",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.7.14/spring-boot-starter-json-2.7.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.rocketmq",
+                    "name": "rocketmq-acl",
+                    "version": "5.0.0",
+                    "artifacts": [
+                        {
+                            "name": "rocketmq-acl",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-acl/5.0.0/rocketmq-acl-5.0.0.jar"
+                        },
+                        {
+                            "name": "rocketmq-acl",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-acl/5.0.0/rocketmq-acl-5.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-native-unix-common",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-native-unix-common",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.94.Final/netty-transport-native-unix-common-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-native-unix-common",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.94.Final/netty-transport-native-unix-common-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.mockito",
+                    "name": "mockito-core",
+                    "version": "4.5.1",
+                    "artifacts": [
+                        {
+                            "name": "mockito-core",
+                            "path": "/Users/didi/.m2/repository/org/mockito/mockito-core/4.5.1/mockito-core-4.5.1.jar"
+                        },
+                        {
+                            "name": "mockito-core",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/mockito/mockito-core/4.5.1/mockito-core-4.5.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.opentest4j",
+                    "name": "opentest4j",
+                    "version": "1.2.0",
+                    "artifacts": [
+                        {
+                            "name": "opentest4j",
+                            "path": "/Users/didi/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar"
+                        },
+                        {
+                            "name": "opentest4j",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework",
+                    "name": "spring-expression",
+                    "version": "5.3.29",
+                    "artifacts": [
+                        {
+                            "name": "spring-expression",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-expression/5.3.29/spring-expression-5.3.29.jar"
+                        },
+                        {
+                            "name": "spring-expression",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-expression/5.3.29/spring-expression-5.3.29-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "jakarta.annotation",
+                    "name": "jakarta.annotation-api",
+                    "version": "1.3.5",
+                    "artifacts": [
+                        {
+                            "name": "jakarta.annotation-api",
+                            "path": "/Users/didi/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar"
+                        },
+                        {
+                            "name": "jakarta.annotation-api",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-resolver",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-resolver",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-resolver/4.1.94.Final/netty-resolver-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-resolver",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-resolver/4.1.94.Final/netty-resolver-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "net.minidev",
+                    "name": "accessors-smart",
+                    "version": "2.4.11",
+                    "artifacts": [
+                        {
+                            "name": "accessors-smart",
+                            "path": "/Users/didi/.m2/repository/net/minidev/accessors-smart/2.4.11/accessors-smart-2.4.11.jar"
+                        },
+                        {
+                            "name": "accessors-smart",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/net/minidev/accessors-smart/2.4.11/accessors-smart-2.4.11-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.assertj",
+                    "name": "assertj-core",
+                    "version": "3.22.0",
+                    "artifacts": [
+                        {
+                            "name": "assertj-core",
+                            "path": "/Users/didi/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar"
+                        },
+                        {
+                            "name": "assertj-core",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.protobuf",
+                    "name": "protobuf-java-util",
+                    "version": "3.20.1",
+                    "artifacts": [
+                        {
+                            "name": "protobuf-java-util",
+                            "path": "/Users/didi/.m2/repository/com/google/protobuf/protobuf-java-util/3.20.1/protobuf-java-util-3.20.1.jar"
+                        },
+                        {
+                            "name": "protobuf-java-util",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/google/protobuf/protobuf-java-util/3.20.1/protobuf-java-util-3.20.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.skyscreamer",
+                    "name": "jsonassert",
+                    "version": "1.5.1",
+                    "artifacts": [
+                        {
+                            "name": "jsonassert",
+                            "path": "/Users/didi/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar"
+                        },
+                        {
+                            "name": "jsonassert",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.ow2.asm",
+                    "name": "asm",
+                    "version": "9.3",
+                    "artifacts": [
+                        {
+                            "name": "asm",
+                            "path": "/Users/didi/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar"
+                        },
+                        {
+                            "name": "asm",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.junit.jupiter",
+                    "name": "junit-jupiter-engine",
+                    "version": "5.8.2",
+                    "artifacts": [
+                        {
+                            "name": "junit-jupiter-engine",
+                            "path": "/Users/didi/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar"
+                        },
+                        {
+                            "name": "junit-jupiter-engine",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "jakarta.activation",
+                    "name": "jakarta.activation-api",
+                    "version": "1.2.2",
+                    "artifacts": [
+                        {
+                            "name": "jakarta.activation-api",
+                            "path": "/Users/didi/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar"
+                        },
+                        {
+                            "name": "jakarta.activation-api",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.tomcat.embed",
+                    "name": "tomcat-embed-core",
+                    "version": "9.0.78",
+                    "artifacts": [
+                        {
+                            "name": "tomcat-embed-core",
+                            "path": "/Users/didi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.78/tomcat-embed-core-9.0.78.jar"
+                        },
+                        {
+                            "name": "tomcat-embed-core",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.78/tomcat-embed-core-9.0.78-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-resolver-dns-native-macos",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-resolver-dns-native-macos",
+                            "classifier": "osx-aarch_64",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.94.Final/netty-resolver-dns-native-macos-4.1.94.Final-osx-aarch_64.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport/4.1.94.Final/netty-transport-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport/4.1.94.Final/netty-transport-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.junit.platform",
+                    "name": "junit-platform-engine",
+                    "version": "1.8.2",
+                    "artifacts": [
+                        {
+                            "name": "junit-platform-engine",
+                            "path": "/Users/didi/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar"
+                        },
+                        {
+                            "name": "junit-platform-engine",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.code.gson",
+                    "name": "gson",
+                    "version": "2.9.1",
+                    "artifacts": [
+                        {
+                            "name": "gson",
+                            "path": "/Users/didi/.m2/repository/com/google/code/gson/gson/2.9.1/gson-2.9.1.jar"
+                        },
+                        {
+                            "name": "gson",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/google/code/gson/gson/2.9.1/gson-2.9.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-smtp",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-smtp",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-smtp/4.1.94.Final/netty-codec-smtp-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-smtp",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-smtp/4.1.94.Final/netty-codec-smtp-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.mockito",
+                    "name": "mockito-junit-jupiter",
+                    "version": "4.5.1",
+                    "artifacts": [
+                        {
+                            "name": "mockito-junit-jupiter",
+                            "path": "/Users/didi/.m2/repository/org/mockito/mockito-junit-jupiter/4.5.1/mockito-junit-jupiter-4.5.1.jar"
+                        },
+                        {
+                            "name": "mockito-junit-jupiter",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/mockito/mockito-junit-jupiter/4.5.1/mockito-junit-jupiter-4.5.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-rxtx",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-rxtx",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-rxtx/4.1.94.Final/netty-transport-rxtx-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-rxtx",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-rxtx/4.1.94.Final/netty-transport-rxtx-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.tomcat",
+                    "name": "annotations-api",
+                    "version": "6.0.53",
+                    "artifacts": [
+                        {
+                            "name": "annotations-api",
+                            "path": "/Users/didi/.m2/repository/org/apache/tomcat/annotations-api/6.0.53/annotations-api-6.0.53.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework.boot",
+                    "name": "spring-boot-autoconfigure",
+                    "version": "2.7.14",
+                    "artifacts": [
+                        {
+                            "name": "spring-boot-autoconfigure",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.7.14/spring-boot-autoconfigure-2.7.14.jar"
+                        },
+                        {
+                            "name": "spring-boot-autoconfigure",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.7.14/spring-boot-autoconfigure-2.7.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework.boot",
+                    "name": "spring-boot-starter",
+                    "version": "2.7.14",
+                    "artifacts": [
+                        {
+                            "name": "spring-boot-starter",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter/2.7.14/spring-boot-starter-2.7.14.jar"
+                        },
+                        {
+                            "name": "spring-boot-starter",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter/2.7.14/spring-boot-starter-2.7.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework",
+                    "name": "spring-test",
+                    "version": "5.3.29",
+                    "artifacts": [
+                        {
+                            "name": "spring-test",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-test/5.3.29/spring-test-5.3.29.jar"
+                        },
+                        {
+                            "name": "spring-test",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-test/5.3.29/spring-test-5.3.29-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.rocketmq",
+                    "name": "rocketmq-client",
+                    "version": "5.0.0",
+                    "artifacts": [
+                        {
+                            "name": "rocketmq-client",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-client/5.0.0/rocketmq-client-5.0.0.jar"
+                        },
+                        {
+                            "name": "rocketmq-client",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-client/5.0.0/rocketmq-client-5.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.junit.jupiter",
+                    "name": "junit-jupiter-api",
+                    "version": "5.8.2",
+                    "artifacts": [
+                        {
+                            "name": "junit-jupiter-api",
+                            "path": "/Users/didi/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar"
+                        },
+                        {
+                            "name": "junit-jupiter-api",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.rocketmq",
+                    "name": "rocketmq-spring-boot",
+                    "version": "2.2.3",
+                    "artifacts": [
+                        {
+                            "name": "rocketmq-spring-boot",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-spring-boot/2.2.3/rocketmq-spring-boot-2.2.3.jar"
+                        },
+                        {
+                            "name": "rocketmq-spring-boot",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-spring-boot/2.2.3/rocketmq-spring-boot-2.2.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.alibaba",
+                    "name": "fastjson",
+                    "version": "1.2.69_noneautotype",
+                    "artifacts": [
+                        {
+                            "name": "fastjson",
+                            "path": "/Users/didi/.m2/repository/com/alibaba/fastjson/1.2.69_noneautotype/fastjson-1.2.69_noneautotype.jar"
+                        },
+                        {
+                            "name": "fastjson",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/alibaba/fastjson/1.2.69_noneautotype/fastjson-1.2.69_noneautotype-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-stomp",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-stomp",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-stomp/4.1.94.Final/netty-codec-stomp-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-stomp",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-stomp/4.1.94.Final/netty-codec-stomp-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.rocketmq",
+                    "name": "rocketmq-logging",
+                    "version": "5.0.0",
+                    "artifacts": [
+                        {
+                            "name": "rocketmq-logging",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-logging/5.0.0/rocketmq-logging-5.0.0.jar"
+                        },
+                        {
+                            "name": "rocketmq-logging",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-logging/5.0.0/rocketmq-logging-5.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.jboss.logging",
+                    "name": "jboss-logging",
+                    "version": "3.4.3.Final",
+                    "artifacts": [
+                        {
+                            "name": "jboss-logging",
+                            "path": "/Users/didi/.m2/repository/org/jboss/logging/jboss-logging/3.4.3.Final/jboss-logging-3.4.3.Final.jar"
+                        },
+                        {
+                            "name": "jboss-logging",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/jboss/logging/jboss-logging/3.4.3.Final/jboss-logging-3.4.3.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apiguardian",
+                    "name": "apiguardian-api",
+                    "version": "1.1.2",
+                    "artifacts": [
+                        {
+                            "name": "apiguardian-api",
+                            "path": "/Users/didi/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar"
+                        },
+                        {
+                            "name": "apiguardian-api",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-buffer",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-buffer",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-buffer/4.1.94.Final/netty-buffer-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-buffer",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-buffer/4.1.94.Final/netty-buffer-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.rocketmq",
+                    "name": "rocketmq-common",
+                    "version": "5.0.0",
+                    "artifacts": [
+                        {
+                            "name": "rocketmq-common",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-common/5.0.0/rocketmq-common-5.0.0.jar"
+                        },
+                        {
+                            "name": "rocketmq-common",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-common/5.0.0/rocketmq-common-5.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework",
+                    "name": "spring-context",
+                    "version": "5.3.29",
+                    "artifacts": [
+                        {
+                            "name": "spring-context",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-context/5.3.29/spring-context-5.3.29.jar"
+                        },
+                        {
+                            "name": "spring-context",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-context/5.3.29/spring-context-5.3.29-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework.boot",
+                    "name": "spring-boot-test-autoconfigure",
+                    "version": "2.7.14",
+                    "artifacts": [
+                        {
+                            "name": "spring-boot-test-autoconfigure",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/2.7.14/spring-boot-test-autoconfigure-2.7.14.jar"
+                        },
+                        {
+                            "name": "spring-boot-test-autoconfigure",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/2.7.14/spring-boot-test-autoconfigure-2.7.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.core",
+                    "name": "jackson-core",
+                    "version": "2.13.5",
+                    "artifacts": [
+                        {
+                            "name": "jackson-core",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.5/jackson-core-2.13.5.jar"
+                        },
+                        {
+                            "name": "jackson-core",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.5/jackson-core-2.13.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.tomcat.embed",
+                    "name": "tomcat-embed-websocket",
+                    "version": "9.0.78",
+                    "artifacts": [
+                        {
+                            "name": "tomcat-embed-websocket",
+                            "path": "/Users/didi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.78/tomcat-embed-websocket-9.0.78.jar"
+                        },
+                        {
+                            "name": "tomcat-embed-websocket",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.78/tomcat-embed-websocket-9.0.78-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-cli",
+                    "name": "commons-cli",
+                    "version": "1.4",
+                    "artifacts": [
+                        {
+                            "name": "commons-cli",
+                            "path": "/Users/didi/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar"
+                        },
+                        {
+                            "name": "commons-cli",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-dns",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-dns",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-dns/4.1.94.Final/netty-codec-dns-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-dns",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-dns/4.1.94.Final/netty-codec-dns-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-memcache",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-memcache",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-memcache/4.1.94.Final/netty-codec-memcache-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-memcache",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-memcache/4.1.94.Final/netty-codec-memcache-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.junit.jupiter",
+                    "name": "junit-jupiter",
+                    "version": "5.8.2",
+                    "artifacts": [
+                        {
+                            "name": "junit-jupiter",
+                            "path": "/Users/didi/.m2/repository/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2.jar"
+                        },
+                        {
+                            "name": "junit-jupiter",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-collections",
+                    "name": "commons-collections",
+                    "version": "3.2.2",
+                    "artifacts": [
+                        {
+                            "name": "commons-collections",
+                            "path": "/Users/didi/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar"
+                        },
+                        {
+                            "name": "commons-collections",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework.boot",
+                    "name": "spring-boot-test",
+                    "version": "2.7.14",
+                    "artifacts": [
+                        {
+                            "name": "spring-boot-test",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-test/2.7.14/spring-boot-test-2.7.14.jar"
+                        },
+                        {
+                            "name": "spring-boot-test",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-test/2.7.14/spring-boot-test-2.7.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.module",
+                    "name": "jackson-module-parameter-names",
+                    "version": "2.13.5",
+                    "artifacts": [
+                        {
+                            "name": "jackson-module-parameter-names",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.13.5/jackson-module-parameter-names-2.13.5.jar"
+                        },
+                        {
+                            "name": "jackson-module-parameter-names",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.13.5/jackson-module-parameter-names-2.13.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "jakarta.validation",
+                    "name": "jakarta.validation-api",
+                    "version": "2.0.2",
+                    "artifacts": [
+                        {
+                            "name": "jakarta.validation-api",
+                            "path": "/Users/didi/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar"
+                        },
+                        {
+                            "name": "jakarta.validation-api",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.rocketmq",
+                    "name": "rocketmq-remoting",
+                    "version": "5.0.0",
+                    "artifacts": [
+                        {
+                            "name": "rocketmq-remoting",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-remoting/5.0.0/rocketmq-remoting-5.0.0.jar"
+                        },
+                        {
+                            "name": "rocketmq-remoting",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-remoting/5.0.0/rocketmq-remoting-5.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-resolver-dns-classes-macos",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-resolver-dns-classes-macos",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-resolver-dns-classes-macos/4.1.94.Final/netty-resolver-dns-classes-macos-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-resolver-dns-classes-macos",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-resolver-dns-classes-macos/4.1.94.Final/netty-resolver-dns-classes-macos-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.datatype",
+                    "name": "jackson-datatype-jdk8",
+                    "version": "2.13.5",
+                    "artifacts": [
+                        {
+                            "name": "jackson-datatype-jdk8",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.13.5/jackson-datatype-jdk8-2.13.5.jar"
+                        },
+                        {
+                            "name": "jackson-datatype-jdk8",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.13.5/jackson-datatype-jdk8-2.13.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.code.findbugs",
+                    "name": "jsr305",
+                    "version": "3.0.2",
+                    "artifacts": [
+                        {
+                            "name": "jsr305",
+                            "path": "/Users/didi/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"
+                        },
+                        {
+                            "name": "jsr305",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework.boot",
+                    "name": "spring-boot-starter-tomcat",
+                    "version": "2.7.14",
+                    "artifacts": [
+                        {
+                            "name": "spring-boot-starter-tomcat",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.7.14/spring-boot-starter-tomcat-2.7.14.jar"
+                        },
+                        {
+                            "name": "spring-boot-starter-tomcat",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.7.14/spring-boot-starter-tomcat-2.7.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec/4.1.94.Final/netty-codec-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec/4.1.94.Final/netty-codec-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-resolver-dns-native-macos",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-resolver-dns-native-macos",
+                            "classifier": "osx-x86_64",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.94.Final/netty-resolver-dns-native-macos-4.1.94.Final-osx-x86_64.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "net.minidev",
+                    "name": "json-smart",
+                    "version": "2.4.11",
+                    "artifacts": [
+                        {
+                            "name": "json-smart",
+                            "path": "/Users/didi/.m2/repository/net/minidev/json-smart/2.4.11/json-smart-2.4.11.jar"
+                        },
+                        {
+                            "name": "json-smart",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/net/minidev/json-smart/2.4.11/json-smart-2.4.11-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.slf4j",
+                    "name": "jul-to-slf4j",
+                    "version": "1.7.36",
+                    "artifacts": [
+                        {
+                            "name": "jul-to-slf4j",
+                            "path": "/Users/didi/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar"
+                        },
+                        {
+                            "name": "jul-to-slf4j",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-digester",
+                    "name": "commons-digester",
+                    "version": "2.1",
+                    "artifacts": [
+                        {
+                            "name": "commons-digester",
+                            "path": "/Users/didi/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar"
+                        },
+                        {
+                            "name": "commons-digester",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-mqtt",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-mqtt",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-mqtt/4.1.94.Final/netty-codec-mqtt-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-mqtt",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-mqtt/4.1.94.Final/netty-codec-mqtt-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.awaitility",
+                    "name": "awaitility",
+                    "version": "4.2.0",
+                    "artifacts": [
+                        {
+                            "name": "awaitility",
+                            "path": "/Users/didi/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar"
+                        },
+                        {
+                            "name": "awaitility",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "ch.qos.logback",
+                    "name": "logback-core",
+                    "version": "1.2.12",
+                    "artifacts": [
+                        {
+                            "name": "logback-core",
+                            "path": "/Users/didi/.m2/repository/ch/qos/logback/logback-core/1.2.12/logback-core-1.2.12.jar"
+                        },
+                        {
+                            "name": "logback-core",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/ch/qos/logback/logback-core/1.2.12/logback-core-1.2.12-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.datatype",
+                    "name": "jackson-datatype-jsr310",
+                    "version": "2.13.5",
+                    "artifacts": [
+                        {
+                            "name": "jackson-datatype-jsr310",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.5/jackson-datatype-jsr310-2.13.5.jar"
+                        },
+                        {
+                            "name": "jackson-datatype-jsr310",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.5/jackson-datatype-jsr310-2.13.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.core",
+                    "name": "jackson-annotations",
+                    "version": "2.13.5",
+                    "artifacts": [
+                        {
+                            "name": "jackson-annotations",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.5/jackson-annotations-2.13.5.jar"
+                        },
+                        {
+                            "name": "jackson-annotations",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.5/jackson-annotations-2.13.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.junit.jupiter",
+                    "name": "junit-jupiter-params",
+                    "version": "5.8.2",
+                    "artifacts": [
+                        {
+                            "name": "junit-jupiter-params",
+                            "path": "/Users/didi/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2.jar"
+                        },
+                        {
+                            "name": "junit-jupiter-params",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.logging.log4j",
+                    "name": "log4j-api",
+                    "version": "2.17.2",
+                    "artifacts": [
+                        {
+                            "name": "log4j-api",
+                            "path": "/Users/didi/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar"
+                        },
+                        {
+                            "name": "log4j-api",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.commons",
+                    "name": "commons-lang3",
+                    "version": "3.12.0",
+                    "artifacts": [
+                        {
+                            "name": "commons-lang3",
+                            "path": "/Users/didi/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar"
+                        },
+                        {
+                            "name": "commons-lang3",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.slf4j",
+                    "name": "slf4j-api",
+                    "version": "1.7.36",
+                    "artifacts": [
+                        {
+                            "name": "slf4j-api",
+                            "path": "/Users/didi/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar"
+                        },
+                        {
+                            "name": "slf4j-api",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.lz4",
+                    "name": "lz4-java",
+                    "version": "1.8.0",
+                    "artifacts": [
+                        {
+                            "name": "lz4-java",
+                            "path": "/Users/didi/.m2/repository/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar"
+                        },
+                        {
+                            "name": "lz4-java",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework",
+                    "name": "spring-messaging",
+                    "version": "5.3.29",
+                    "artifacts": [
+                        {
+                            "name": "spring-messaging",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-messaging/5.3.29/spring-messaging-5.3.29.jar"
+                        },
+                        {
+                            "name": "spring-messaging",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-messaging/5.3.29/spring-messaging-5.3.29-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.objenesis",
+                    "name": "objenesis",
+                    "version": "3.2",
+                    "artifacts": [
+                        {
+                            "name": "objenesis",
+                            "path": "/Users/didi/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar"
+                        },
+                        {
+                            "name": "objenesis",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.protobuf",
+                    "name": "protobuf-java",
+                    "version": "3.20.1",
+                    "artifacts": [
+                        {
+                            "name": "protobuf-java",
+                            "path": "/Users/didi/.m2/repository/com/google/protobuf/protobuf-java/3.20.1/protobuf-java-3.20.1.jar"
+                        },
+                        {
+                            "name": "protobuf-java",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/google/protobuf/protobuf-java/3.20.1/protobuf-java-3.20.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework",
+                    "name": "spring-beans",
+                    "version": "5.3.29",
+                    "artifacts": [
+                        {
+                            "name": "spring-beans",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-beans/5.3.29/spring-beans-5.3.29.jar"
+                        },
+                        {
+                            "name": "spring-beans",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-beans/5.3.29/spring-beans-5.3.29-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework",
+                    "name": "spring-web",
+                    "version": "5.3.29",
+                    "artifacts": [
+                        {
+                            "name": "spring-web",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-web/5.3.29/spring-web-5.3.29.jar"
+                        },
+                        {
+                            "name": "spring-web",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-web/5.3.29/spring-web-5.3.29-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-native-kqueue",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-native-kqueue",
+                            "classifier": "osx-x86_64",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-native-kqueue/4.1.94.Final/netty-transport-native-kqueue-4.1.94.Final-osx-x86_64.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "net.bytebuddy",
+                    "name": "byte-buddy",
+                    "version": "1.12.23",
+                    "artifacts": [
+                        {
+                            "name": "byte-buddy",
+                            "path": "/Users/didi/.m2/repository/net/bytebuddy/byte-buddy/1.12.23/byte-buddy-1.12.23.jar"
+                        },
+                        {
+                            "name": "byte-buddy",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/net/bytebuddy/byte-buddy/1.12.23/byte-buddy-1.12.23-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-http",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-http",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-http/4.1.94.Final/netty-codec-http-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-http",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-http/4.1.94.Final/netty-codec-http-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.guava",
+                    "name": "guava",
+                    "version": "31.0.1-jre",
+                    "artifacts": [
+                        {
+                            "name": "guava",
+                            "path": "/Users/didi/.m2/repository/com/google/guava/guava/31.0.1-jre/guava-31.0.1-jre.jar"
+                        },
+                        {
+                            "name": "guava",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/google/guava/guava/31.0.1-jre/guava-31.0.1-jre-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml",
+                    "name": "classmate",
+                    "version": "1.5.1",
+                    "artifacts": [
+                        {
+                            "name": "classmate",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar"
+                        },
+                        {
+                            "name": "classmate",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-validator",
+                    "name": "commons-validator",
+                    "version": "1.7",
+                    "artifacts": [
+                        {
+                            "name": "commons-validator",
+                            "path": "/Users/didi/.m2/repository/commons-validator/commons-validator/1.7/commons-validator-1.7.jar"
+                        },
+                        {
+                            "name": "commons-validator",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/commons-validator/commons-validator/1.7/commons-validator-1.7-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.jayway.jsonpath",
+                    "name": "json-path",
+                    "version": "2.7.0",
+                    "artifacts": [
+                        {
+                            "name": "json-path",
+                            "path": "/Users/didi/.m2/repository/com/jayway/jsonpath/json-path/2.7.0/json-path-2.7.0.jar"
+                        },
+                        {
+                            "name": "json-path",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/jayway/jsonpath/json-path/2.7.0/json-path-2.7.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-socks",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-socks",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-socks/4.1.94.Final/netty-codec-socks-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-socks",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-socks/4.1.94.Final/netty-codec-socks-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-common",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-common",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-common/4.1.94.Final/netty-common-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-common",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-common/4.1.94.Final/netty-common-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.logging.log4j",
+                    "name": "log4j-to-slf4j",
+                    "version": "2.17.2",
+                    "artifacts": [
+                        {
+                            "name": "log4j-to-slf4j",
+                            "path": "/Users/didi/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.17.2/log4j-to-slf4j-2.17.2.jar"
+                        },
+                        {
+                            "name": "log4j-to-slf4j",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.17.2/log4j-to-slf4j-2.17.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework.boot",
+                    "name": "spring-boot",
+                    "version": "2.7.14",
+                    "artifacts": [
+                        {
+                            "name": "spring-boot",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot/2.7.14/spring-boot-2.7.14.jar"
+                        },
+                        {
+                            "name": "spring-boot",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot/2.7.14/spring-boot-2.7.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-handler-proxy",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-handler-proxy",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-handler-proxy/4.1.94.Final/netty-handler-proxy-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-handler-proxy",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-handler-proxy/4.1.94.Final/netty-handler-proxy-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-native-kqueue",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-native-kqueue",
+                            "classifier": "osx-aarch_64",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-native-kqueue/4.1.94.Final/netty-transport-native-kqueue-4.1.94.Final-osx-aarch_64.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-sctp",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-sctp",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-sctp/4.1.94.Final/netty-transport-sctp-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-sctp",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-sctp/4.1.94.Final/netty-transport-sctp-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework",
+                    "name": "spring-aop",
+                    "version": "5.3.29",
+                    "artifacts": [
+                        {
+                            "name": "spring-aop",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-aop/5.3.29/spring-aop-5.3.29.jar"
+                        },
+                        {
+                            "name": "spring-aop",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-aop/5.3.29/spring-aop-5.3.29-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-classes-epoll",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-classes-epoll",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-classes-epoll/4.1.94.Final/netty-transport-classes-epoll-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-classes-epoll",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-classes-epoll/4.1.94.Final/netty-transport-classes-epoll-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-udt",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-udt",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-udt/4.1.94.Final/netty-transport-udt-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-udt",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-transport-udt/4.1.94.Final/netty-transport-udt-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.rocketmq",
+                    "name": "rocketmq-spring-boot-starter",
+                    "version": "2.2.3",
+                    "artifacts": [
+                        {
+                            "name": "rocketmq-spring-boot-starter",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-spring-boot-starter/2.2.3/rocketmq-spring-boot-starter-2.2.3.jar"
+                        },
+                        {
+                            "name": "rocketmq-spring-boot-starter",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-spring-boot-starter/2.2.3/rocketmq-spring-boot-starter-2.2.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.hibernate.validator",
+                    "name": "hibernate-validator",
+                    "version": "6.2.5.Final",
+                    "artifacts": [
+                        {
+                            "name": "hibernate-validator",
+                            "path": "/Users/didi/.m2/repository/org/hibernate/validator/hibernate-validator/6.2.5.Final/hibernate-validator-6.2.5.Final.jar"
+                        },
+                        {
+                            "name": "hibernate-validator",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/hibernate/validator/hibernate-validator/6.2.5.Final/hibernate-validator-6.2.5.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework",
+                    "name": "spring-jcl",
+                    "version": "5.3.29",
+                    "artifacts": [
+                        {
+                            "name": "spring-jcl",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-jcl/5.3.29/spring-jcl-5.3.29.jar"
+                        },
+                        {
+                            "name": "spring-jcl",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-jcl/5.3.29/spring-jcl-5.3.29-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.github.luben",
+                    "name": "zstd-jni",
+                    "version": "1.5.2-2",
+                    "artifacts": [
+                        {
+                            "name": "zstd-jni",
+                            "path": "/Users/didi/.m2/repository/com/github/luben/zstd-jni/1.5.2-2/zstd-jni-1.5.2-2.jar"
+                        },
+                        {
+                            "name": "zstd-jni",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/github/luben/zstd-jni/1.5.2-2/zstd-jni-1.5.2-2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-beanutils",
+                    "name": "commons-beanutils",
+                    "version": "1.9.4",
+                    "artifacts": [
+                        {
+                            "name": "commons-beanutils",
+                            "path": "/Users/didi/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar"
+                        },
+                        {
+                            "name": "commons-beanutils",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.projectlombok",
+                    "name": "lombok",
+                    "version": "1.18.28",
+                    "artifacts": [
+                        {
+                            "name": "lombok",
+                            "path": "/Users/didi/.m2/repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar"
+                        },
+                        {
+                            "name": "lombok",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-resolver-dns",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-resolver-dns",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-resolver-dns/4.1.94.Final/netty-resolver-dns-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-resolver-dns",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-resolver-dns/4.1.94.Final/netty-resolver-dns-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.rocketmq",
+                    "name": "rocketmq-srvutil",
+                    "version": "5.0.0",
+                    "artifacts": [
+                        {
+                            "name": "rocketmq-srvutil",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-srvutil/5.0.0/rocketmq-srvutil-5.0.0.jar"
+                        },
+                        {
+                            "name": "rocketmq-srvutil",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/rocketmq/rocketmq-srvutil/5.0.0/rocketmq-srvutil-5.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "ch.qos.logback",
+                    "name": "logback-classic",
+                    "version": "1.2.12",
+                    "artifacts": [
+                        {
+                            "name": "logback-classic",
+                            "path": "/Users/didi/.m2/repository/ch/qos/logback/logback-classic/1.2.12/logback-classic-1.2.12.jar"
+                        },
+                        {
+                            "name": "logback-classic",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/ch/qos/logback/logback-classic/1.2.12/logback-classic-1.2.12-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework.boot",
+                    "name": "spring-boot-starter-web",
+                    "version": "2.7.14",
+                    "artifacts": [
+                        {
+                            "name": "spring-boot-starter-web",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.7.14/spring-boot-starter-web-2.7.14.jar"
+                        },
+                        {
+                            "name": "spring-boot-starter-web",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.7.14/spring-boot-starter-web-2.7.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "jakarta.xml.bind",
+                    "name": "jakarta.xml.bind-api",
+                    "version": "2.3.3",
+                    "artifacts": [
+                        {
+                            "name": "jakarta.xml.bind-api",
+                            "path": "/Users/didi/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar"
+                        },
+                        {
+                            "name": "jakarta.xml.bind-api",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.vaadin.external.google",
+                    "name": "android-json",
+                    "version": "0.0.20131108.vaadin1",
+                    "artifacts": [
+                        {
+                            "name": "android-json",
+                            "path": "/Users/didi/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar"
+                        },
+                        {
+                            "name": "android-json",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-all",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-all",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-all/4.1.94.Final/netty-all-4.1.94.Final.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.tomcat.embed",
+                    "name": "tomcat-embed-el",
+                    "version": "9.0.78",
+                    "artifacts": [
+                        {
+                            "name": "tomcat-embed-el",
+                            "path": "/Users/didi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.78/tomcat-embed-el-9.0.78.jar"
+                        },
+                        {
+                            "name": "tomcat-embed-el",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.78/tomcat-embed-el-9.0.78-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-handler-ssl-ocsp",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-handler-ssl-ocsp",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-handler-ssl-ocsp/4.1.94.Final/netty-handler-ssl-ocsp-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-handler-ssl-ocsp",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-handler-ssl-ocsp/4.1.94.Final/netty-handler-ssl-ocsp-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.j2objc",
+                    "name": "j2objc-annotations",
+                    "version": "1.3",
+                    "artifacts": [
+                        {
+                            "name": "j2objc-annotations",
+                            "path": "/Users/didi/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar"
+                        },
+                        {
+                            "name": "j2objc-annotations",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.yaml",
+                    "name": "snakeyaml",
+                    "version": "1.30",
+                    "artifacts": [
+                        {
+                            "name": "snakeyaml",
+                            "path": "/Users/didi/.m2/repository/org/yaml/snakeyaml/1.30/snakeyaml-1.30.jar"
+                        },
+                        {
+                            "name": "snakeyaml",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/yaml/snakeyaml/1.30/snakeyaml-1.30-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-codec",
+                    "name": "commons-codec",
+                    "version": "1.15",
+                    "artifacts": [
+                        {
+                            "name": "commons-codec",
+                            "path": "/Users/didi/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar"
+                        },
+                        {
+                            "name": "commons-codec",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.guava",
+                    "name": "failureaccess",
+                    "version": "1.0.1",
+                    "artifacts": [
+                        {
+                            "name": "failureaccess",
+                            "path": "/Users/didi/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar"
+                        },
+                        {
+                            "name": "failureaccess",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-redis",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-redis",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-redis/4.1.94.Final/netty-codec-redis-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-redis",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-redis/4.1.94.Final/netty-codec-redis-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework.boot",
+                    "name": "spring-boot-starter-validation",
+                    "version": "2.7.14",
+                    "artifacts": [
+                        {
+                            "name": "spring-boot-starter-validation",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-validation/2.7.14/spring-boot-starter-validation-2.7.14.jar"
+                        },
+                        {
+                            "name": "spring-boot-starter-validation",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/boot/spring-boot-starter-validation/2.7.14/spring-boot-starter-validation-2.7.14-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-haproxy",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-haproxy",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-haproxy/4.1.94.Final/netty-codec-haproxy-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-haproxy",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-haproxy/4.1.94.Final/netty-codec-haproxy-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.junit.platform",
+                    "name": "junit-platform-commons",
+                    "version": "1.8.2",
+                    "artifacts": [
+                        {
+                            "name": "junit-platform-commons",
+                            "path": "/Users/didi/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar"
+                        },
+                        {
+                            "name": "junit-platform-commons",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.springframework",
+                    "name": "spring-core",
+                    "version": "5.3.29",
+                    "artifacts": [
+                        {
+                            "name": "spring-core",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-core/5.3.29/spring-core-5.3.29.jar"
+                        },
+                        {
+                            "name": "spring-core",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/springframework/spring-core/5.3.29/spring-core-5.3.29-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.xmlunit",
+                    "name": "xmlunit-core",
+                    "version": "2.9.1",
+                    "artifacts": [
+                        {
+                            "name": "xmlunit-core",
+                            "path": "/Users/didi/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar"
+                        },
+                        {
+                            "name": "xmlunit-core",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-handler",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-handler",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-handler/4.1.94.Final/netty-handler-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-handler",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-handler/4.1.94.Final/netty-handler-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.guava",
+                    "name": "listenablefuture",
+                    "version": "9999.0-empty-to-avoid-conflict-with-guava",
+                    "artifacts": [
+                        {
+                            "name": "listenablefuture",
+                            "path": "/Users/didi/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec-http2",
+                    "version": "4.1.94.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec-http2",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-http2/4.1.94.Final/netty-codec-http2-4.1.94.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec-http2",
+                            "classifier": "sources",
+                            "path": "/Users/didi/.m2/repository/io/netty/netty-codec-http2/4.1.94.Final/netty-codec-http2-4.1.94.Final-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "library"
+        ]
+    }
+}
