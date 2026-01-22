@@ -1,12 +1,14 @@
 services:
   # Redis服务 - 用于redis-example模块
   redis:
-    image: redis:7-alpine
-    container_name: redis-example
+    image: redis:latest
+    container_name: redis_test
     ports:
       - "6379:6379"
+    # 数据持久化配置（可选）
     volumes:
       - redis-data:/data
+    # AOF 持久化（可选）
     command: redis-server --appendonly yes
     networks:
       - component-network
@@ -15,6 +17,7 @@ services:
       interval: 10s
       timeout: 3s
       retries: 3
+    restart: unless-stopped
 
   # MySQL服务 - 用于mysql-example模块
   mysql:
@@ -45,8 +48,9 @@ services:
 
   # RocketMQ NameServer - 用于mq-example模块
   rocketmq-nameserver:
-    image: apacherocketmq/rocketmq:5.1.4
-    container_name: rocketmq-nameserver
+    image: apache/rocketmq:latest
+    platform: linux/amd64
+    container_name: rmqnamesrv
     ports:
       - "9876:9876"
     volumes:
@@ -55,49 +59,67 @@ services:
     networks:
       - component-network
     environment:
-      JAVA_OPT_EXT: "-server -Xms512m -Xmx512m -Xmn256m"
+      JAVA_OPT_EXT: "-Xms512M -Xmx512M -Xmn128m"
     healthcheck:
       test: ["CMD", "sh", "-c", "netstat -an | grep 9876 || exit 1"]
       interval: 10s
       timeout: 3s
       retries: 3
+    restart: unless-stopped
 
   # RocketMQ Broker - 用于mq-example模块
+  # 注意：使用 4.9.7 版本，因为 5.x 版本在 Apple Silicon 上运行 amd64 镜像时
+  # 存在 RocksDB 本地库不兼容的问题
   rocketmq-broker:
-    image: apacherocketmq/rocketmq:5.1.4
-    container_name: rocketmq-broker
+    image: apache/rocketmq:4.9.7
+    platform: linux/amd64
+    container_name: rmqbroker
     ports:
       - "10909:10909"
       - "10911:10911"
+      - "10912:10912"
     volumes:
       - rocketmq-broker-logs:/home/rocketmq/logs
       - rocketmq-broker-store:/home/rocketmq/store
-    command: sh mqbroker -n rocketmq-nameserver:9876
+      # 挂载 Broker 配置文件，设置 brokerIP1 = 127.0.0.1 以便外部访问
+      # 配置文件已包含在项目中：mq-example/rocketmq/broker/conf/broker.conf
+      - ./mq-example/rocketmq/broker/conf/broker.conf:/home/rocketmq/rocketmq-4.9.7/conf/broker.conf
+    # 4.9.7 版本：使用工作目录启动
+    working_dir: /home/rocketmq/rocketmq-4.9.7/bin
+    command: sh mqbroker -n rmqnamesrv:9876 -c /home/rocketmq/rocketmq-4.9.7/conf/broker.conf
     networks:
       - component-network
     environment:
-      JAVA_OPT_EXT: "-server -Xms512m -Xmx512m -Xmn256m"
+      NAMESRV_ADDR: rmqnamesrv:9876
+      JAVA_OPT_EXT: "-Xms512M -Xmx512M -Xmn128m"
     depends_on:
       - rocketmq-nameserver
-    healthcheck:
-      test: ["CMD", "sh", "-c", "netstat -an | grep 10911 || exit 1"]
-      interval: 10s
-      timeout: 3s
-      retries: 3
+    # 临时禁用健康检查，避免因健康检查失败导致重启
+    # healthcheck:
+    #   test: ["CMD", "sh", "-c", "ps aux | grep -v grep | grep -q mqbroker || exit 1"]
+    #   interval: 10s
+    #   timeout: 3s
+    #   retries: 3
+    #   start_period: 30s
+    restart: unless-stopped
 
   # RocketMQ Console - RocketMQ管理控制台（可选）
+  # 注意：由于 Broker 配置了 brokerIP1=127.0.0.1 以便宿主机访问，
+  # Console 在容器内无法通过 127.0.0.1 访问 Broker，会出现连接错误。
+  # 解决方案：使用 host 网络模式，让 Console 可以访问宿主机的 127.0.0.1:10909
+  # 注意：使用 host 网络模式后，ports 配置会失效，Console 直接使用宿主机的 8080 端口
   rocketmq-console:
     image: styletang/rocketmq-console-ng:latest
+    platform: linux/amd64
     container_name: rocketmq-console
-    ports:
-      - "8080:8080"
+    # 使用 host 网络模式，让 Console 可以访问 127.0.0.1:10909
+    network_mode: host
     environment:
-      JAVA_OPTS: "-Drocketmq.namesrv.addr=rocketmq-nameserver:9876"
-    networks:
-      - component-network
+      JAVA_OPTS: "-Drocketmq.namesrv.addr=localhost:9876"
     depends_on:
       - rocketmq-nameserver
       - rocketmq-broker
+    restart: unless-stopped
 
 volumes:
   redis-data:

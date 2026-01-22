@@ -2,12 +2,14 @@ services:
   # Redis服务 - 用于redis-example模块
   redis:
     image: redis:latest
-    container_name: redis-example
+    container_name: redis_test
     ports:
       - "6379:6379"
-    volumes:
-      - redis-data:/data
-    command: redis-server --appendonly yes
+    # 当前运行的 Redis 没有挂载数据卷，如需持久化可取消注释
+    # volumes:
+    #   - redis-data:/data
+    # 当前运行的 Redis 使用默认配置，如需开启 AOF 持久化可取消注释
+    # command: redis-server --appendonly yes
     networks:
       - component-network
     healthcheck:
@@ -15,6 +17,7 @@ services:
       interval: 10s
       timeout: 3s
       retries: 3
+    restart: unless-stopped
 
   # MySQL服务 - 用于mysql-example模块
   mysql:
