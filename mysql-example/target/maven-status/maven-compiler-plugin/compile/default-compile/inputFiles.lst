@@ -1,0 +1,12 @@
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/MySQLExampleApplication.java
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/config/MyBatisPlusConfig.java
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/controller/FrameworkExampleController.java
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/controller/MySQLExampleController.java
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/mapper/UserMapper.java
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/mapper/UserPlusMapper.java
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/model/User.java
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/model/UserPlus.java
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/service/JdbcTemplateExampleService.java
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/service/MyBatisExampleService.java
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/service/MyBatisPlusExampleService.java
+/Users/didi/java_project/component_usage_java/mysql-example/src/main/java/com/example/mysql/service/MySQLExampleService.java

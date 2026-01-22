@@ -31,8 +31,8 @@ MySQL使用示例模块，演示了三种数据库框架（JDBC Template、MyBat
 
 ## 技术栈
 
-- **Java**: 1.8
-- **Spring Boot**: 2.7.14
+- **Java**: 21
+- **Spring Boot**: 3.2.0
 - **Maven**: 多模块项目管理
 - **Redis**: Jedis 4.3.1, Lettuce, Redisson
 - **MySQL**: MySQL Connector 8.0.33
@@ -46,7 +46,7 @@ MySQL使用示例模块，演示了三种数据库框架（JDBC Template、MyBat
 
 ### 前置要求
 
-1. **JDK 1.8+**
+1. **JDK 21+** (Java 21 或更高版本)
 2. **Maven 3.6+**
 3. **Docker 和 Docker Compose**（推荐，用于快速启动依赖服务）
    - 或者手动安装：**Redis**、**MySQL**、**RocketMQ**
