@@ -15,7 +15,8 @@ import org.springframework.stereotype.Service;
 @RocketMQMessageListener(
         topic = "order-topic",
         selectorExpression = "order-timeout",
-        consumerGroup = "delay-order-consumer-group"
+        consumerGroup = "delay-order-consumer-group",
+        nameServer = "${rocketmq.name-server}"
 )
 public class DelayMessageConsumer implements RocketMQListener<OrderMessage> {
 

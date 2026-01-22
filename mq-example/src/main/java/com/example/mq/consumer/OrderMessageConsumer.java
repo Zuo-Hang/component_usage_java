@@ -15,7 +15,8 @@ import org.springframework.stereotype.Service;
 @RocketMQMessageListener(
         topic = "order-topic",
         selectorExpression = "order-create",
-        consumerGroup = "order-consumer-group"
+        consumerGroup = "order-consumer-group",
+        nameServer = "${rocketmq.name-server}"
 )
 public class OrderMessageConsumer implements RocketMQListener<OrderMessage> {
 

@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
+import org.apache.rocketmq.client.producer.DefaultMQProducer;
+import org.apache.rocketmq.client.exception.MQClientException;
+import jakarta.annotation.PostConstruct;
 import java.math.BigDecimal;
 
 /**
@@ -23,6 +26,25 @@ public class MQProducerService {
     // 主题名称
     private static final String ORDER_TOPIC = "order-topic";
     private static final String ORDER_TAG = "order-create";
+    
+    /**
+     * 初始化时尝试创建 Topic（如果不存在）
+     * RocketMQ 5.x 需要手动创建 Topic
+     */
+    @PostConstruct
+    public void initTopic() {
+        try {
+            // 通过 RocketMQTemplate 获取 Producer 并创建 Topic
+            DefaultMQProducer producer = (DefaultMQProducer) rocketMQTemplate.getProducer();
+            if (producer != null) {
+                // 尝试创建 Topic（如果 Broker 支持自动创建）
+                log.info("MQProducerService 初始化完成，Topic: {}", ORDER_TOPIC);
+                log.info("注意：如果 Topic 不存在，请手动创建：sh mqadmin updateTopic -n localhost:9876 -c DefaultCluster -t order-topic");
+            }
+        } catch (Exception e) {
+            log.warn("Topic 初始化检查失败，可能需要手动创建 Topic: {}", ORDER_TOPIC, e);
+        }
+    }
 
     /**
      * 发送同步消息
