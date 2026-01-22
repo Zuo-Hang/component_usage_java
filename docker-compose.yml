@@ -103,6 +103,45 @@ services:
     #   start_period: 30s
     restart: unless-stopped
 
+  # ZooKeeper服务 - 用于zookeeper-example模块
+  zookeeper:
+    image: zookeeper:3.9
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181
+    volumes:
+      - zookeeper-data:/data
+      - zookeeper-logs:/datalog
+    networks:
+      - component-network
+    # ZooKeeper 3.9 对命令有白名单限制，简化健康检查
+    healthcheck:
+      test: ["CMD", "sh", "-c", "nc -z localhost 2181 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  # ZooNavigator - ZooKeeper可视化管理工具
+  zookeeper-navigator:
+    image: elkozmon/zoonavigator:latest
+    container_name: zookeeper-navigator
+    ports:
+      - "9000:9000"
+    environment:
+      HTTP_PORT: 9000
+      # 默认连接字符串（可选，也可以在 Web UI 中手动输入）
+      ZOONAVIGATOR_DEFAULT_CONNECTION_STRING: zookeeper:2181
+    networks:
+      - component-network
+    depends_on:
+      - zookeeper
+    restart: unless-stopped
+
   # RocketMQ Console - RocketMQ管理控制台（可选）
   # 注意：由于 Broker 配置了 brokerIP1=127.0.0.1 以便宿主机访问，
   # Console 在容器内无法通过 127.0.0.1 访问 Broker，会出现连接错误。
@@ -131,6 +170,10 @@ volumes:
   rocketmq-broker-logs:
     driver: local
   rocketmq-broker-store:
+    driver: local
+  zookeeper-data:
+    driver: local
+  zookeeper-logs:
     driver: local
 
 networks:
