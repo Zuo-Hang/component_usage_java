@@ -1,0 +1,6 @@
+com/example/kafka/consumer/KafkaMessageConsumer.class
+com/example/kafka/controller/KafkaController.class
+com/example/kafka/model/Message.class
+com/example/kafka/config/KafkaConfig.class
+com/example/kafka/KafkaExampleApplication.class
+com/example/kafka/service/KafkaProducerService.class

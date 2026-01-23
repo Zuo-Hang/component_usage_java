@@ -17,8 +17,8 @@ Docker Compose 是一个用于定义和运行多容器 Docker 应用程序的工
 
 - **Redis** (端口 6379) - 用于 `redis-example` 模块
 - **MySQL** (端口 3306) - 用于 `mysql-example` 模块
-- **RocketMQ NameServer** (端口 9876) - 用于 `mq-example` 模块
-- **RocketMQ Broker** (端口 10909, 10911) - 用于 `mq-example` 模块
+- **RocketMQ NameServer** (端口 9876) - 用于 `mq-rocketmq-example` 模块
+- **RocketMQ Broker** (端口 10909, 10911) - 用于 `mq-rocketmq-example` 模块
 - **RocketMQ Console** (端口 8080) - RocketMQ 管理控制台（可选）
 
 ## 快速开始
@@ -252,8 +252,8 @@ docker ps -a  # 查看所有容器状态
 |-----------|---------|------|
 | redis | redis-example | Redis客户端示例 |
 | mysql | mysql-example | MySQL数据库示例 |
-| rocketmq-nameserver | mq-example | RocketMQ NameServer |
-| rocketmq-broker | mq-example | RocketMQ Broker |
+| rocketmq-nameserver | mq-rocketmq-example | RocketMQ NameServer |
+| rocketmq-broker | mq-rocketmq-example | RocketMQ Broker |
 | rocketmq-console | - | RocketMQ管理控制台 |
 
 ## 更新配置

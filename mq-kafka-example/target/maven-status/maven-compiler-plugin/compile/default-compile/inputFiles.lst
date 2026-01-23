@@ -1,0 +1,6 @@
+/Users/didi/java_project/component_usage_java/mq-kafka-example/src/main/java/com/example/kafka/KafkaExampleApplication.java
+/Users/didi/java_project/component_usage_java/mq-kafka-example/src/main/java/com/example/kafka/config/KafkaConfig.java
+/Users/didi/java_project/component_usage_java/mq-kafka-example/src/main/java/com/example/kafka/consumer/KafkaMessageConsumer.java
+/Users/didi/java_project/component_usage_java/mq-kafka-example/src/main/java/com/example/kafka/controller/KafkaController.java
+/Users/didi/java_project/component_usage_java/mq-kafka-example/src/main/java/com/example/kafka/model/Message.java
+/Users/didi/java_project/component_usage_java/mq-kafka-example/src/main/java/com/example/kafka/service/KafkaProducerService.java

@@ -16,7 +16,8 @@
     <modules>
         <module>redis-example</module>
         <module>mysql-example</module>
-        <module>mq-example</module>
+        <module>mq-rocketmq-example</module>
+        <module>mq-kafka-example</module>
         <module>zookeeper-example</module>
     </modules>
 

@@ -9,7 +9,9 @@ component-usage-java/
 ├── pom.xml                          # 父POM文件
 ├── redis-example/                   # Redis使用示例模块
 ├── mysql-example/                   # MySQL使用示例模块
-└── mq-example/                      # 消息队列使用示例模块
+├── mq-rocketmq-example/             # RocketMQ消息队列使用示例模块
+├── mq-kafka-example/                # Kafka消息队列使用示例模块
+└── zookeeper-example/               # ZooKeeper使用示例模块
 ```
 
 ## 模块说明
@@ -24,10 +26,20 @@ MySQL使用示例模块，演示了三种数据库框架（JDBC Template、MyBat
 
 **详细文档**: [mysql-example/README.md](mysql-example/README.md)
 
-### 3. mq-example
-消息队列使用示例模块（基于RocketMQ），演示了各种消息发送和消费场景。
+### 3. mq-rocketmq-example
+RocketMQ消息队列使用示例模块，演示了各种消息发送和消费场景。
 
-**详细文档**: [mq-example/README.md](mq-example/README.md)
+**详细文档**: [mq-rocketmq-example/README.md](mq-rocketmq-example/README.md)
+
+### 4. mq-kafka-example
+Kafka消息队列使用示例模块，演示了同步/异步发送、消费者监听、分区控制等场景。
+
+**详细文档**: [mq-kafka-example/README.md](mq-kafka-example/README.md)
+
+### 5. zookeeper-example
+ZooKeeper使用示例模块，演示了节点操作、监听机制等场景。
+
+**详细文档**: [zookeeper-example/README.md](zookeeper-example/README.md)
 
 ## 技术栈
 
@@ -39,6 +51,8 @@ MySQL使用示例模块，演示了三种数据库框架（JDBC Template、MyBat
 - **MyBatis**: 2.3.1
 - **MyBatis Plus**: 3.5.3
 - **RocketMQ**: 2.2.3
+- **Kafka**: Spring Kafka (Spring Boot 管理版本)
+- **ZooKeeper**: Apache Curator 5.5.0
 - **HikariCP**: 数据库连接池
 - **Lombok**: 简化Java代码
 
@@ -91,8 +105,16 @@ mvn spring-boot:run
 cd mysql-example
 mvn spring-boot:run
 
-# 运行MQ示例
-cd mq-example
+# 运行RocketMQ示例
+cd mq-rocketmq-example
+mvn spring-boot:run
+
+# 运行Kafka示例
+cd mq-kafka-example
+mvn spring-boot:run
+
+# 运行ZooKeeper示例
+cd zookeeper-example
 mvn spring-boot:run
 ```
 

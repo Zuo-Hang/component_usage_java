@@ -1,0 +1,7 @@
+/Users/didi/java_project/component_usage_java/mq-rocketmq-example/src/main/java/com/example/mq/MQExampleApplication.java
+/Users/didi/java_project/component_usage_java/mq-rocketmq-example/src/main/java/com/example/mq/config/RocketMQConfig.java
+/Users/didi/java_project/component_usage_java/mq-rocketmq-example/src/main/java/com/example/mq/consumer/DelayMessageConsumer.java
+/Users/didi/java_project/component_usage_java/mq-rocketmq-example/src/main/java/com/example/mq/consumer/OrderMessageConsumer.java
+/Users/didi/java_project/component_usage_java/mq-rocketmq-example/src/main/java/com/example/mq/controller/MQExampleController.java
+/Users/didi/java_project/component_usage_java/mq-rocketmq-example/src/main/java/com/example/mq/model/OrderMessage.java
+/Users/didi/java_project/component_usage_java/mq-rocketmq-example/src/main/java/com/example/mq/service/MQProducerService.java

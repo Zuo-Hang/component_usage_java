@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: kafka-example
+
+server:
+  port: 8084
+
+# Kafka配置
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # ========== 可靠性保障配置 ==========
+      # 1. 确认机制：all=等待所有副本确认（最高可靠性）
+      acks: all
+      # 2. 幂等性：防止重复消息（启用后自动设置 max.in.flight.requests.per.connection=5）
+      enable-idempotence: true
+      # 3. 重试配置
+      retries: 2147483647  # Integer.MAX_VALUE，配合幂等性使用
+      retry-backoff-ms: 100  # 重试间隔
+      # 4. 超时配置
+      request-timeout-ms: 30000  # 请求超时30秒
+      delivery-timeout-ms: 120000  # 总交付超时2分钟
+      # 5. 批量发送配置（提高吞吐量）
+      batch-size: 16384  # 16KB
+      linger-ms: 10  # 等待10ms以批量发送
+      buffer-memory: 33554432  # 32MB缓冲区
+      # 6. 压缩配置（可选）
+      compression-type: snappy
+    consumer:
+      group-id: default-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+
+logging:
+  level:
+    com.example.kafka: DEBUG
+    org.apache.kafka: INFO
