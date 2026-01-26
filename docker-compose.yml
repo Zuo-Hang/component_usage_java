@@ -191,6 +191,213 @@ services:
       - rocketmq-broker
     restart: unless-stopped
 
+  # Nacos服务 - 用于nacos-example模块
+  # Nacos是服务注册与发现、配置管理平台
+  # 说明：标准镜像目前不提供 arm64 清单，Apple Silicon 上需要使用 slim 版本
+  nacos:
+    image: nacos/nacos-server:v2.3.0-slim
+    container_name: nacos
+    ports:
+      - "8848:8848"  # Nacos控制台和API端口
+      - "9848:9848"  # gRPC端口（2.x版本）
+      - "9849:9849"  # gRPC端口（2.x版本）
+    environment:
+      # 单机模式启动
+      MODE: standalone
+      # JVM参数
+      JVM_XMS: 512m
+      JVM_XMX: 512m
+      JVM_XMN: 256m
+      # 默认用户名密码（生产环境请修改）
+      NACOS_AUTH_ENABLE: "false"  # 是否开启认证（开发环境可关闭）
+      # NACOS_AUTH_IDENTITY_KEY: serverIdentity
+      # NACOS_AUTH_IDENTITY_VALUE: security
+      # NACOS_AUTH_TOKEN: SecretKey012345678901234567890123456789012345678901234567890123456789
+      # NACOS_AUTH_TOKEN_EXPIRE_SECONDS: 18000
+    volumes:
+      - nacos-data:/home/nacos/data
+      - nacos-logs:/home/nacos/logs
+    networks:
+      - component-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8848/nacos/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  # MinIO服务 - 用于s3-example模块
+  # MinIO是S3兼容的对象存储服务
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"  # API端口
+      - "9001:9001"  # 控制台端口
+    environment:
+      # 默认用户名和密码（生产环境请修改）
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - minio-data:/data
+    networks:
+      - component-network
+    command: server /data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  # MongoDB服务 - 用于mongodb-example模块
+  # MongoDB是文档数据库
+  mongodb:
+    image: mongo:7.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      # 可选：设置MongoDB用户名和密码
+      # MONGO_INITDB_ROOT_USERNAME: admin
+      # MONGO_INITDB_ROOT_PASSWORD: password
+      # MONGO_INITDB_DATABASE: test_db
+    volumes:
+      - mongodb-data:/data/db
+      - mongodb-config:/data/configdb
+    networks:
+      - component-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  # ClickHouse服务 - 用于clickhouse-example模块
+  # ClickHouse是OLAP列式数据库，用于数据分析场景
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: clickhouse
+    ports:
+      - "8123:8123"  # HTTP接口端口
+      - "9000:9000"  # 原生协议端口
+    environment:
+      # 默认用户：default（无密码）
+      # CLICKHOUSE_USER: default
+      # CLICKHOUSE_PASSWORD: ""
+      # CLICKHOUSE_DB: default
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+      - clickhouse-logs:/var/log/clickhouse-server
+    networks:
+      - component-network
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8123/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  # Apache Doris FE (Frontend) - 用于doris-example模块
+  # FE负责元数据管理、查询规划、集群管理
+  # 注意：Doris需要FE和BE两个服务，启动时间较长（1-2分钟）
+  doris-fe:
+    image: apache/doris:fe-2.0.4_2.1
+    container_name: doris-fe
+    hostname: doris-fe
+    ports:
+      - "8030:8030"  # HTTP端口（Web UI）
+      - "9020:9020"  # RPC端口
+      - "9030:9030"  # MySQL协议端口（应用连接此端口）
+    environment:
+      # FE配置（单节点模式）
+      FE_SERVERS: "fe1:doris-fe:9010"
+      FE_ID: 1
+    volumes:
+      - doris-fe-data:/opt/apache-doris/fe/doris-meta
+      - doris-fe-logs:/opt/apache-doris/fe/log
+    networks:
+      - component-network
+    # 注意：Doris FE启动较慢，需要较长的启动时间
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-P", "9030", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 120s  # FE启动需要1-2分钟
+    restart: unless-stopped
+
+  # Apache Doris BE (Backend) - 用于doris-example模块
+  # BE负责数据存储和查询执行
+  doris-be:
+    image: apache/doris:be-2.0.4_2.1
+    container_name: doris-be
+    hostname: doris-be
+    ports:
+      - "8040:8040"  # HTTP端口
+      - "9060:9060"  # RPC端口
+      - "8060:8060"  # RPC端口
+    environment:
+      # BE配置
+      FE_SERVERS: "fe1:doris-fe:9010"
+      BE_ADDR: "doris-be:9050"
+    volumes:
+      - doris-be-data:/opt/apache-doris/be/storage
+      - doris-be-logs:/opt/apache-doris/be/log
+    networks:
+      - component-network
+    depends_on:
+      doris-fe:
+        condition: service_healthy  # 等待FE健康后再启动
+    # 注意：BE启动后需要手动添加到FE集群（通过FE Web UI或SQL）
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8040/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 120s  # BE启动需要1-2分钟
+    restart: unless-stopped
+
+  # Etcd服务 - 用于etcd-example模块
+  # Etcd是分布式键值存储，用于服务发现和配置管理
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.9
+    container_name: etcd
+    ports:
+      - "2379:2379"  # 客户端API端口
+      - "2380:2380"  # 节点间通信端口
+    environment:
+      # 单节点模式配置
+      ETCD_NAME: etcd-single
+      ETCD_DATA_DIR: /etcd-data
+      ETCD_LISTEN_CLIENT_URLS: http://0.0.0.0:2379
+      ETCD_ADVERTISE_CLIENT_URLS: http://localhost:2379
+      ETCD_LISTEN_PEER_URLS: http://0.0.0.0:2380
+      ETCD_INITIAL_ADVERTISE_PEER_URLS: http://localhost:2380
+      ETCD_INITIAL_CLUSTER: etcd-single=http://localhost:2380
+      ETCD_INITIAL_CLUSTER_TOKEN: etcd-cluster
+      ETCD_INITIAL_CLUSTER_STATE: new
+    volumes:
+      - etcd-data:/etcd-data
+    networks:
+      - component-network
+    healthcheck:
+      test: ["CMD", "etcdctl", "endpoint", "health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
 volumes:
   redis-data:
     driver: local
@@ -207,6 +414,30 @@ volumes:
   zookeeper-data:
     driver: local
   zookeeper-logs:
+    driver: local
+  nacos-data:
+    driver: local
+  nacos-logs:
+    driver: local
+  minio-data:
+    driver: local
+  mongodb-data:
+    driver: local
+  mongodb-config:
+    driver: local
+  clickhouse-data:
+    driver: local
+  clickhouse-logs:
+    driver: local
+  doris-fe-data:
+    driver: local
+  doris-fe-logs:
+    driver: local
+  doris-be-data:
+    driver: local
+  doris-be-logs:
+    driver: local
+  etcd-data:
     driver: local
 
 networks:

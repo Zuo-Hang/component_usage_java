@@ -1,0 +1,64 @@
+spring:
+  application:
+    name: nacos-example
+
+server:
+  port: 8085
+
+# Nacos配置
+spring:
+  cloud:
+    nacos:
+      # 服务注册与发现配置
+      discovery:
+        server-addr: localhost:8848
+        namespace: # 命名空间，默认为public
+        group: DEFAULT_GROUP
+        # 注册的实例元数据
+        metadata:
+          version: 1.0.0
+          region: default
+        # 是否启用服务注册
+        enabled: true
+        # 注册的IP地址（可选，默认自动获取）
+        # ip: 127.0.0.1
+        # 注册的端口（可选，默认使用server.port）
+        # port: 8085
+        # 权重（0-1之间，用于负载均衡）
+        weight: 1.0
+        # 是否健康检查
+        healthy: true
+        # 是否临时实例（临时实例会在服务下线时自动删除）
+        ephemeral: true
+      
+      # 配置管理配置
+      config:
+        server-addr: localhost:8848
+        namespace: # 命名空间，默认为public
+        group: DEFAULT_GROUP
+        # 配置文件扩展名（properties、yaml、yml等）
+        file-extension: properties
+        # 是否启用配置管理
+        enabled: true
+        # 共享配置（多个应用共享的配置）
+        # shared-configs:
+        #   - data-id: shared-config.properties
+        #     group: SHARED_GROUP
+        #     refresh: true
+        # 扩展配置
+        # extension-configs:
+        #   - data-id: extension-config.properties
+        #     group: EXTENSION_GROUP
+        #     refresh: true
+
+# 应用配置（可以从Nacos配置中心读取）
+app:
+  name: nacos-example
+  version: 1.0.0
+  description: Nacos服务注册与发现、配置管理示例
+
+logging:
+  level:
+    com.example.nacos: DEBUG
+    com.alibaba.nacos: INFO
+    org.springframework.cloud: INFO

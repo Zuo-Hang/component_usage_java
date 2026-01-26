@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: quartz-example
+  
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/quartz_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+server:
+  port: 8091
+
+# Quartz配置
+quartz:
+  # Scheduler实例ID（集群模式下，每个实例需要不同的ID）
+  # AUTO: 自动生成（推荐用于集群模式）
+  # 固定值: 用于单机模式
+  instanceId: AUTO
+  
+  # 是否启用集群模式
+  # true: 启用集群模式（多实例部署，避免重复执行）
+  # false: 单机模式
+  clustered: true
+  
+  # 线程池配置
+  threadPool:
+    # 线程池大小（建议根据任务数量调整）
+    threadCount: 10
+
+logging:
+  level:
+    com.example.quartz: DEBUG
+    org.quartz: INFO
+    org.springframework.scheduling.quartz: INFO

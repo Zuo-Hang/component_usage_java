@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: mongodb-example
+
+server:
+  port: 8087
+
+# MongoDB配置
+spring:
+  data:
+    mongodb:
+      # MongoDB连接URI
+      uri: mongodb://localhost:27017/test_db
+      # 或者分别配置
+      # host: localhost
+      # port: 27017
+      # database: test_db
+      # username: # 可选
+      # password: # 可选
+      # authentication-database: admin  # 认证数据库
+      
+      # 连接池配置
+      # 注意：Spring Boot 3.x 使用新的连接池，配置方式可能不同
+      # 可以通过URI参数配置：
+      # mongodb://localhost:27017/test_db?maxPoolSize=50&minPoolSize=5
+
+logging:
+  level:
+    com.example.mongodb: DEBUG
+    org.springframework.data.mongodb: INFO
+    org.mongodb: INFO

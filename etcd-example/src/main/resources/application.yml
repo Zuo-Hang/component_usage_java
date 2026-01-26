@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: etcd-example
+
+server:
+  port: 8090
+
+# Etcd配置
+etcd:
+  # Etcd服务地址（支持多节点，逗号分隔）
+  # 格式：http://host:port,http://host2:port2
+  endpoints: http://localhost:2379
+  
+  # 服务发现配置
+  service:
+    # 服务注册前缀
+    prefix: /services
+  
+  # 配置管理配置
+  config:
+    # 配置存储前缀
+    prefix: /config
+
+logging:
+  level:
+    com.example.etcd: DEBUG
+    io.etcd: INFO

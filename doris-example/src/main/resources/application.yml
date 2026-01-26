@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: doris-example
+
+server:
+  port: 8089
+
+# Doris配置
+# 注意：Doris兼容MySQL协议，使用MySQL JDBC驱动
+doris:
+  # JDBC连接URL（使用MySQL协议）
+  # 格式：jdbc:mysql://host:port/database
+  # FE（Frontend）端口：9030（MySQL协议）
+  # BE（Backend）端口：8040（HTTP接口）
+  url: jdbc:mysql://localhost:9030/demo
+  # 用户名（默认：root）
+  username: root
+  # 密码（默认：空）
+  password: ""
+  # 数据库名称
+  database: demo
+
+# Spring JDBC配置
+spring:
+  datasource:
+    url: ${doris.url}
+    username: ${doris.username}
+    password: ${doris.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      # 连接池配置（针对高并发OLAP场景优化）
+      maximum-pool-size: 50  # Doris支持高并发，设置较大
+      minimum-idle: 10
+      connection-timeout: 60000  # 60秒（复杂JOIN查询可能较慢）
+      idle-timeout: 300000  # 5分钟
+      max-lifetime: 1800000  # 30分钟
+
+logging:
+  level:
+    com.example.doris: DEBUG
+    com.mysql: INFO
+    com.zaxxer.hikari: INFO

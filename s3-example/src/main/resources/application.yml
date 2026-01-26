@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: s3-example
+
+server:
+  port: 8086
+
+# S3配置
+# 支持MinIO和AWS S3
+s3:
+  # 如果配置了endpoint，则连接到MinIO或其他S3兼容服务
+  # 如果不配置endpoint，则连接到AWS S3
+  endpoint: http://localhost:9000  # MinIO默认端口9000
+  # endpoint: https://s3.amazonaws.com  # AWS S3端点（不配置则使用默认）
+  
+  # 访问密钥（MinIO和AWS S3都需要）
+  access-key: minioadmin  # MinIO默认用户名
+  secret-key: minioadmin   # MinIO默认密码
+  # access-key: ${AWS_ACCESS_KEY_ID}  # AWS访问密钥ID
+  # secret-key: ${AWS_SECRET_ACCESS_KEY}  # AWS密钥
+  
+  # 区域（AWS S3需要，MinIO可以任意）
+  region: us-east-1
+  
+  # 默认Bucket名称
+  bucket: test-bucket
+
+# 文件上传配置
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB  # 最大文件大小
+      max-request-size: 100MB  # 最大请求大小
+
+logging:
+  level:
+    com.example.s3: DEBUG
+    software.amazon.awssdk: INFO

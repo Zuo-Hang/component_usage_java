@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: clickhouse-example
+
+server:
+  port: 8088
+
+# ClickHouse配置
+clickhouse:
+  # JDBC连接URL
+  # 格式：jdbc:clickhouse://host:port/database
+  url: jdbc:clickhouse://localhost:8123/default
+  # 用户名（默认：default）
+  username: default
+  # 密码（默认：空）
+  password: ""
+  # 数据库名称
+  database: default
+
+# Spring JDBC配置
+spring:
+  datasource:
+    url: ${clickhouse.url}
+    username: ${clickhouse.username}
+    password: ${clickhouse.password}
+    driver-class-name: com.clickhouse.jdbc.ClickHouseDriver
+    hikari:
+      # 连接池配置（针对OLAP场景优化）
+      maximum-pool-size: 20  # OLAP查询并发度较低
+      minimum-idle: 5
+      connection-timeout: 60000  # 60秒（聚合查询可能较慢）
+      idle-timeout: 300000  # 5分钟
+      max-lifetime: 1800000  # 30分钟
+
+logging:
+  level:
+    com.example.clickhouse: DEBUG
+    com.clickhouse: INFO
+    com.zaxxer.hikari: INFO

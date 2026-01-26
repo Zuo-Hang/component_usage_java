@@ -1,0 +1,13 @@
+# Bootstrap配置文件（优先级高于application.yml）
+# Spring Cloud应用启动时会先加载此文件
+spring:
+  application:
+    name: nacos-example
+  cloud:
+    nacos:
+      config:
+        # 配置文件的dataId（格式：${spring.application.name}.${file-extension}）
+        # 默认：nacos-example.properties
+        # 可以通过以下方式指定：
+        # name: nacos-example
+        # file-extension: properties
