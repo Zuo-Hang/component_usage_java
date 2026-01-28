@@ -157,6 +157,38 @@ public class KafkaMessageConsumer {
     }
 
     /**
+     * 精准一次性消费示例（Exactly-Once Semantics）
+     * 
+     * 使用 read_committed 隔离级别：
+     * - 只读取已提交事务的消息
+     * - 未提交或已回滚的事务消息不会出现在消费中
+     * 配合生产者 sendExactlyOnce() 使用，实现端到端精准一次性
+     */
+    @KafkaListener(topics = "eos-topic", groupId = "eos-consumer-group",
+                   containerFactory = "readCommittedKafkaListenerContainerFactory")
+    public void consumeEosTopic(
+            @Payload String message,
+            Acknowledgment acknowledgment,
+            @Header(KafkaHeaders.RECEIVED_PARTITION) int partition,
+            @Header(KafkaHeaders.OFFSET) long offset,
+            @Header(value = KafkaHeaders.RECEIVED_KEY, required = false) String key) {
+        String messageId = String.format("eos-topic-%d-%d", partition, offset);
+        try {
+            log.info("精准一次性消费: messageId={}, key={}, partition={}, offset={}, message={}",
+                    messageId, key, partition, offset, message);
+            // 业务处理（每条消息仅被处理一次，且不会读到未提交事务的消息）
+            processOrderMessage(message);
+            if (!processedMessageIds.contains(messageId)) {
+                processedMessageIds.add(messageId);
+            }
+            acknowledgment.acknowledge();
+        } catch (Exception e) {
+            log.error("精准一次性消费处理失败: messageId={}, message={}", messageId, message, e);
+            throw new RuntimeException("EOS消费处理失败", e);
+        }
+    }
+
+    /**
      * 监听多个主题
      * @param message 消息内容
      * @param topic 主题名称

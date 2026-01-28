@@ -66,11 +66,39 @@ public class KafkaConfig {
     }
 
     /**
-     * KafkaTemplate
+     * 事务型生产者工厂（用于精准一次性 Exactly-Once Semantics）
+     * 必须设置 transactionIdPrefix，且每个 producer 实例唯一
+     */
+    @Bean
+    public ProducerFactory<String, String> transactionalProducerFactory() {
+        Map<String, Object> configProps = new HashMap<>();
+        configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        configProps.put(ProducerConfig.ACKS_CONFIG, "all");
+        configProps.put(ProducerConfig.RETRIES_CONFIG, Integer.MAX_VALUE);
+        configProps.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
+        
+        DefaultKafkaProducerFactory<String, String> factory = new DefaultKafkaProducerFactory<>(configProps);
+        // 设置事务 ID 前缀（同一应用内唯一即可，多实例需加 instanceId）
+        factory.setTransactionIdPrefix("eos-tx-");
+        return factory;
+    }
+
+    /**
+     * KafkaTemplate（普通，非事务）
      */
     @Bean
     public KafkaTemplate<String, String> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
+    }
+
+    /**
+     * 事务型 KafkaTemplate（用于精准一次性发送）
+     */
+    @Bean("transactionalKafkaTemplate")
+    public KafkaTemplate<String, String> transactionalKafkaTemplate() {
+        return new KafkaTemplate<>(transactionalProducerFactory());
     }
 
     /**
@@ -129,6 +157,27 @@ public class KafkaConfig {
         // 5. 隔离级别（读取已提交的消息，配合事务使用）
         // props.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, "read_committed");
         
+        return new DefaultKafkaConsumerFactory<>(props);
+    }
+
+    /**
+     * 消费者配置（read_committed - 仅读取已提交事务的消息，用于精准一次性消费）
+     */
+    @Bean
+    public ConsumerFactory<String, String> readCommittedConsumerFactory() {
+        Map<String, Object> props = new HashMap<>();
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "eos-consumer-group");
+        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        // 精准一次性：只消费已提交事务的消息，未提交/回滚的消息不会读到
+        props.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, "read_committed");
+        props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, 30000);
+        props.put(ConsumerConfig.HEARTBEAT_INTERVAL_MS_CONFIG, 3000);
+        props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, 300000);
+        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, 10);
         return new DefaultKafkaConsumerFactory<>(props);
     }
 
@@ -215,6 +264,19 @@ public class KafkaConfig {
         // 关键：设置并发数为1，确保顺序处理
         factory.setConcurrency(1);
         
+        return factory;
+    }
+
+    /**
+     * 监听器容器工厂（read_committed - 精准一次性消费）
+     */
+    @Bean
+    public ConcurrentKafkaListenerContainerFactory<String, String> readCommittedKafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, String> factory =
+                new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(readCommittedConsumerFactory());
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
+        factory.setConcurrency(2);
         return factory;
     }
 }

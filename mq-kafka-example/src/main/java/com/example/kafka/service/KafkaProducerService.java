@@ -4,11 +4,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -23,6 +25,10 @@ public class KafkaProducerService {
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
+
+    @Autowired
+    @Qualifier("transactionalKafkaTemplate")
+    private KafkaTemplate<String, String> transactionalKafkaTemplate;
 
     /**
      * 同步发送消息（最高可靠性）
@@ -179,5 +185,50 @@ public class KafkaProducerService {
         log.error("发送失败，已重试{}次: topic={}, key={}, message={}", 
                 maxRetries, topic, key, message, lastException);
         throw new RuntimeException("发送失败，已重试" + maxRetries + "次", lastException);
+    }
+
+    /**
+     * 精准一次性发送：在事务内发送消息（Exactly-Once Semantics）
+     * 配合消费者 read_committed 隔离级别，可实现端到端精准一次性。
+     * 
+     * 行为：
+     * - 事务提交成功：消息对 read_committed 消费者可见
+     * - 事务回滚或未提交：消息不会对 read_committed 消费者可见
+     * 
+     * @param topic 主题（建议使用 eos-topic 等专用 topic）
+     * @param key   消息 key（可为 null）
+     * @param message 消息内容
+     * @return 发送结果
+     */
+    @SuppressWarnings("null")
+    public SendResult<String, String> sendExactlyOnce(String topic, @Nullable String key, String message) {
+        return transactionalKafkaTemplate.executeInTransaction(operations -> {
+            try {
+                CompletableFuture<SendResult<String, String>> future = operations.send(topic, key, message);
+                SendResult<String, String> result = future.get(30, TimeUnit.SECONDS);
+                RecordMetadata meta = result.getRecordMetadata();
+                log.info("事务内发送成功(精准一次性): topic={}, partition={}, offset={}, key={}", 
+                        topic, meta.partition(), meta.offset(), key);
+                return result;
+            } catch (Exception e) {
+                log.error("事务内发送失败，事务将回滚: topic={}, key={}, error={}", topic, key, e.getMessage());
+                throw new RuntimeException("事务发送失败", e);
+            }
+        });
+    }
+
+    /**
+     * 精准一次性批量发送：在同一个事务内发送多条消息，要么全成功要么全不可见
+     */
+    @SuppressWarnings("null")
+    public void sendExactlyOnceBatch(String topic, List<String> messages) {
+        transactionalKafkaTemplate.executeInTransaction(operations -> {
+            for (int i = 0; i < messages.size(); i++) {
+                String key = "eos-" + i;
+                operations.send(topic, key, messages.get(i));
+            }
+            log.info("事务内批量发送: topic={}, count={}", topic, messages.size());
+            return null;
+        });
     }
 }

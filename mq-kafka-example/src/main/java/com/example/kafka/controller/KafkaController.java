@@ -7,6 +7,7 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -144,6 +145,60 @@ public class KafkaController {
             Map<String, Object> response = new HashMap<>();
             response.put("success", false);
             response.put("message", "消息发送失败（已重试）: " + e.getMessage());
+            return response;
+        }
+    }
+
+    /**
+     * 精准一次性发送（Exactly-Once Semantics）
+     * 使用事务发送到 eos-topic，消费者需使用 read_committed 才会读到
+     * 
+     * POST /kafka/send/eos?key=order-1&message=payload
+     */
+    @PostMapping("/send/eos")
+    public Map<String, Object> sendExactlyOnce(
+            @RequestParam(required = false) String key,
+            @RequestParam String message) {
+        String topic = "eos-topic";
+        try {
+            SendResult<String, String> result = kafkaProducerService.sendExactlyOnce(topic, key, message);
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("topic", topic);
+            response.put("partition", result.getRecordMetadata().partition());
+            response.put("offset", result.getRecordMetadata().offset());
+            response.put("semantics", "exactly-once");
+            response.put("message", "消息已以事务方式发送（精准一次性），仅 read_committed 消费者可见");
+            return response;
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", false);
+            response.put("message", "精准一次性发送失败: " + e.getMessage());
+            return response;
+        }
+    }
+
+    /**
+     * 精准一次性批量发送
+     * POST /kafka/send/eos-batch
+     * Body: ["msg1", "msg2", "msg3"]
+     */
+    @PostMapping("/send/eos-batch")
+    public Map<String, Object> sendExactlyOnceBatch(@RequestBody List<String> messages) {
+        String topic = "eos-topic";
+        try {
+            kafkaProducerService.sendExactlyOnceBatch(topic, messages);
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("topic", topic);
+            response.put("count", messages.size());
+            response.put("semantics", "exactly-once");
+            response.put("message", "批量消息已在同一事务内发送，要么全部可见要么全部不可见");
+            return response;
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", false);
+            response.put("message", "精准一次性批量发送失败: " + e.getMessage());
             return response;
         }
     }
